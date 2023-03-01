@@ -89,6 +89,8 @@ class VoxelNet(pl.LightningModule):
     def __init__(self, hparams):
         super().__init__()
 
+        print(hparams)
+
         # see config.py for details
         for key in self.hparams.keys():
 	        self.hparams[key] = hparams[key]
