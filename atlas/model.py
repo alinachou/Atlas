@@ -91,7 +91,7 @@ class VoxelNet(pl.LightningModule):
 
         # see config.py for details
         for key in self.hparams.keys():
-		self.hparams[key] = hparams[key]
+	    self.hparams[key] = hparams[key]
 
         # pytorch lightning does not support saving YACS CfgNone     
         self.cfg = CfgNode(self.hparams)
