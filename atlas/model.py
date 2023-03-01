@@ -88,13 +88,14 @@ class VoxelNet(pl.LightningModule):
 
     def __init__(self, hparams):
         super().__init__()
-        self.save_hyperparameters()
+        self.save_hyperparameters(hparams)
 
         print(hparams)
 
         # see config.py for details
         for key in self.hparams.keys():
 	        self.hparams[key] = hparams[key]
+        # self._hparams = hparams
                 
         # pytorch lightning does not support saving YACS CfgNone     
         self.cfg = CfgNode(self.hparams)
