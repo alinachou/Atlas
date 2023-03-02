@@ -129,7 +129,8 @@ def main():
     print(checkpoint['hyper_parameters'])
 
     # model = VoxelNet.load_from_checkpoint(args.model, strict=False)
-    model = VoxelNet.load_state_dict(checkpoint['state_dict'])
+    model = VoxelNet()
+    model = model.load_state_dict(checkpoint['state_dict'])
     model = model.cuda().eval()
     torch.set_grad_enabled(False)
 
