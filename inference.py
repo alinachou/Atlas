@@ -124,6 +124,10 @@ def main():
     # .txt files contain a list of info_file.json's
     info_files = parse_splits_list(args.scenes)
 
+    checkpoint = torch.load(args.model, map_location=torch.device('cpu'))
+
+    print(checkpoint.keys())
+
     model = VoxelNet.load_from_checkpoint(args.model, strict=False)
     model = model.cuda().eval()
     torch.set_grad_enabled(False)
