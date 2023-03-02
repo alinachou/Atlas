@@ -126,7 +126,9 @@ def main():
 
     checkpoint = torch.load(args.model, map_location=torch.device('cpu'))
 
-    print(checkpoint['hyper_parameters'])
+    print("HYPER_PARAMETERS:", checkpoint['hyper_parameters'])
+    print("STATE DICT:", checkpoint['state_dict'])
+    print("HPARAMS_NAME:", checkpoint['hparams_name'])
 
     # model = VoxelNet.load_from_checkpoint(args.model, strict=False)
     model = VoxelNet(checkpoint['hyper_parameters'])
@@ -134,7 +136,7 @@ def main():
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
-    
+
     model = model.cuda().eval()
     torch.set_grad_enabled(False)
 
