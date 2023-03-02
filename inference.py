@@ -127,7 +127,6 @@ def main():
     checkpoint = torch.load(args.model, map_location=torch.device('cpu'))
 
     print("HYPER_PARAMETERS:", checkpoint['hyper_parameters'])
-    print("STATE DICT:", checkpoint['state_dict'])
     print("HPARAMS_NAME:", checkpoint['hparams_name'])
 
     # model = VoxelNet.load_from_checkpoint(args.model, strict=False)
